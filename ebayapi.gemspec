@@ -17,11 +17,11 @@ Gem::Specification.new do |s|
   s.rubyforge_project = s.name
   s.required_rubygems_version = ">= 1.3.4"
 
-  s.add_dependency("xml-mapping", ["-> 0.9.0"])
-  s.add_dependency("money", ["-> 6.1.1"])
+  s.add_dependency("xml-mapping", ["~> 0.9.1"])
+  s.add_dependency("money", ["~> 6.1.1"])
 
-  s.add_development_dependency("rake", ["-> 10.0"])
-  s.add_development_dependency("activesupport", ["-> 3.0.0"])
-  s.add_development_dependency("libxml-ruby", ["-> 2.6"])
-  s.add_development_dependency("soap4r-ruby1.9", ["-> 2.0.0"])
+  s.add_development_dependency("rake", ["~> 10.0"])
+  s.add_development_dependency("activesupport", ["~> 3.0.0"])
+  s.add_development_dependency("libxml-ruby", ["~> 2.6"])
+  s.add_development_dependency("soap4r-ruby1.9", ["~> 2.0.0"])
 end
