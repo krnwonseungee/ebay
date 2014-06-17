@@ -19,18 +19,19 @@ item = Ebay::Types::Item.new(
   :listing_duration => 'Days_7',
   :country => 'US',
   :currency => 'USD',
+  :dispatch_time_max => 1,
   :payment_methods => ['VisaMC'],
   :condition_id => 1000,
   :shipping_details => Ebay::Types::ShippingDetails.new(
-   :shipping_service_options => [
-     ShippingServiceOptions.new(
-      :shipping_service_priority => 2, # Display priority in the listing
-      :shipping_service => 'UPSNextDay',
-      :shipping_service_cost => Money.new(1000, 'USD'),
-      :shipping_surcharge => Money.new(299, 'USD')
-     )
-   ]
- )
+    :shipping_service_options => [
+      Ebay::Types::ShippingServiceOptions.new(
+        :shipping_service_priority => 2, # Display priority in the listing
+        :shipping_service => 'UPSNextDay',
+        :shipping_service_cost => Money.new(1000, 'USD'),
+        :shipping_surcharge => Money.new(299, 'USD')
+      )
+    ]
+  )
 )
 
 begin
