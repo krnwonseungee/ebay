@@ -10,9 +10,9 @@ require 'xml/mapping'
 ebay = Ebay::Api.new
 
 item = Ebay::Types::Item.new(
-  :primary_category => Ebay::Types::Category.new(:category_id => 57882),
+  :primary_category => Ebay::Types::Category.new(:category_id => 51581),
   :title => 'Ruby eBay API Test Listing',
-  :description => 'Welcome!',
+  :description => 'Neesha Purple Keyhole Banded Maxi',
   :location => 'Ottawa, On',
   :start_price => Money.new(1200, 'USD'),
   :quantity => 1,
@@ -29,6 +29,23 @@ item = Ebay::Types::Item.new(
         :shipping_service => 'UPSNextDay',
         :shipping_service_cost => Money.new(1000, 'USD'),
         :shipping_surcharge => Money.new(299, 'USD')
+      )
+    ]
+  ),
+  :picture_details => Ebay::Types::PictureDetails.new(
+    :picture_urls => ["http://s3.amazonaws.com/boutiika-assets/image_library/BTKA_14029483086978557_28e0fe88768fbc94f883473ccf5f38.jpg"]
+  ),
+
+  :return_policy => Ebay::Types::ReturnPolicy.new(
+    :returns_accepted_option => "ReturnsAccepted",
+    :returns_within_option => "Days_14"
+  ),
+
+  :variations => Ebay::Types::Variation.new(
+    :variation_specific_set => [
+      Ebay::Types::NameValueList.new(
+          :name => "Color",
+          :values => ["Purple", "White"]
       )
     ]
   )
