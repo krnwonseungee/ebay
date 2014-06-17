@@ -27,7 +27,7 @@ module Ebay # :nodoc:
       text_node :sku, 'SKU', :optional => true
       money_node :start_price, 'StartPrice', :optional => true
       numeric_node :quantity, 'Quantity', :optional => true
-      array_node :variation_specifics, 'VariationSpecifics', 'NameValueList', :class => NameValueList, :default_value => []
+      array_node :variation_specific_set, 'VariationSpecificSet', 'NameValueList', :class => NameValueList, :default_value => []
       numeric_node :units_available, 'UnitsAvailable', :optional => true
       money_node :unit_cost, 'UnitCost', :optional => true
       object_node :selling_status, 'SellingStatus', :class => SellingStatus, :optional => true
