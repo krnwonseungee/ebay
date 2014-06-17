@@ -8,7 +8,7 @@ require 'config'
 ebay = Ebay::Api.new
 
 item = Ebay::Requests::GetItem.new(
-  :item_id => Ebay::Requests::GetItem.new( item_id: 110144758093 )
+  :item_id => Ebay::Requests::GetItem.new( item_id: 110144758093 ) #sample ID. replace with item ID after add_item call
 )
 
 begin
