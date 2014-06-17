@@ -14,6 +14,7 @@ begin
   # email address
   response = ebay.get_user(:user_id => ARGV.shift)
   user = response.user
+  puts "User ID is: #{user.user_id}"
   puts "The user's feedback score is: #{user.feedback_score}"
   puts "The user is registered in #{user.site}"
   puts "The user is new? #{user.new_user}"
