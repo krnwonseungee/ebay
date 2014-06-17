@@ -1,3 +1,7 @@
+require 'ebay'
+require 'config'
+
+ebay = Ebay::Api.new
 
 module Ebay # :nodoc:
   module Requests # :nodoc:
