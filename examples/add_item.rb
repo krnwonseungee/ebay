@@ -18,58 +18,36 @@ ebay = Api.new
 
 # In this example I am simple passing in the strings 'Days_7', 'USD' and others.
 # However, there are constants defined for these code types, which can be enumerated
-# For example, CurrencyCode::CAD 
+# For example, CurrencyCode::CAD
 # For enumerating through the available types: CurrencyCode.each{|code| puts code}
 
-item = Item.new( :primary_category => Category.new(:category_id => 20412),
-         :title => 'Ruby eBay API Test Listing',
-         :description => 'Welcome!',
-         :location => 'Ottawa, On',
-         :start_price => Money.new(1200, 'USD'),
-         :quantity => 1,
-         :listing_duration => 'Days_7',
-         :country => 'US',
-         :currency => 'USD',
-         :payment_methods => ['VisaMC', 'PersonalCheck'],
-         :attribute_sets => [
-           AttributeSet.new(
-             :attribute_set_id => 2919,
-             :attributes => [ 
-               Attribute.new(
-                 :attribute_id => 10244, 
-                 :values => [ Val.new(:value_id => 10425) ]
-               ) 
-              ]
-           )
-         ],
-         :shipping_details => ShippingDetails.new(
-           :shipping_service_options => [
-             ShippingServiceOptions.new(
-              :shipping_service_priority => 2, # Display priority in the listing
-              :shipping_service => 'UPSNextDay',
-              :shipping_service_cost => Money.new(1000, 'USD'),
-              :shipping_surcharge => Money.new(299, 'USD')
-             ),
-             ShippingServiceOptions.new(
-              :shipping_service_priority => 1, # Display priority in the listing
-              :shipping_service => 'UPSGround',
-              :shipping_service_cost => Money.new(699, 'USD'),
-              :shipping_surcharge => Money.new(199, 'USD')
-             )
-           ],
-           :international_shipping_service_options => [ 
-             InternationalShippingServiceOptions.new(
-               :shipping_service => 'USPSPriorityMailInternational', 
-               :shipping_service_cost => Money.new(2199, 'USD'), 
-               :shipping_service_priority => 1,
-               :ship_to_location => 'Europe'
-            )
-           ]
-         )       
-			 )
+item = Ebay::Types::Item.new(
+  :primary_category => Ebay::Types::Category.new(:category_id => 57882),
+  :title => 'Ruby eBay API Test Listing',
+  :description => 'Welcome!',
+  :location => 'Ottawa, On',
+  :start_price => Money.new(1200, 'USD'),
+  :quantity => 1,
+  :listing_duration => 'Days_7',
+  :country => 'US',
+  :currency => 'USD',
+  :dispatch_time_max => 1,
+  :payment_methods => ['VisaMC'],
+  :condition_id => 1000,
+  :shipping_details => Ebay::Types::ShippingDetails.new(
+    :shipping_service_options => [
+      Ebay::Types::ShippingServiceOptions.new(
+        :shipping_service_priority => 2, # Display priority in the listing
+        :shipping_service => 'UPSNextDay',
+        :shipping_service_cost => Money.new(1000, 'USD'),
+        :shipping_surcharge => Money.new(299, 'USD')
+      )
+    ]
+  )
+)
 
 begin
-  response = ebay.add_item(:item => item)               
+  response = ebay.add_item(:item => item)
   puts "Adding item"
   puts "eBay time is: #{response.timestamp}"
 
