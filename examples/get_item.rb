@@ -7,9 +7,13 @@ require 'config'
 
 ebay = Ebay::Api.new
 
+item = Ebay::Requests::GetItem.new(
+  :item_id => Ebay::Requests::GetItem.new( item_id: 110144758093 )
+)
+
 begin
   # Get the item as passed in as the first argument
-  response = ebay.get_item(:item_id => ARGV.first)
+  response = ebay.get_item( :item_id => item.item_id )
 
   # Get the item, which is of the type Ebay::Types::Item
   item = response.item
