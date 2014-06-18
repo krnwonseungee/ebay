@@ -22,11 +22,12 @@ ebay = Api.new
 # For enumerating through the available types: CurrencyCode.each{|code| puts code}
 
 item = Ebay::Types::Item.new(
-  :primary_category => Ebay::Types::Category.new(:category_id => 57882),
-  :title => 'Ruby eBay API Test Listing',
-  :description => 'Welcome!',
-  :location => 'Ottawa, On',
-  :start_price => Money.new(1200, 'USD'),
+  :primary_category => Ebay::Types::Category.new(:category_id => 50986),
+  :title => 'Neesha',
+  :description => 'Welcome to Mapel Boutique!',
+  :location => 'Tigard, OR',
+  :start_price => Money.new(7200, 'USD'),
+  :buy_it_now_price => Money.new(9500, 'USD'),
   :quantity => 1,
   :listing_duration => 'Days_7',
   :country => 'US',
@@ -34,6 +35,16 @@ item = Ebay::Types::Item.new(
   :dispatch_time_max => 1,
   :payment_methods => ['VisaMC'],
   :condition_id => 1000,
+  :picture_details => Ebay::Types::PictureDetails.new(
+    :picture_urls => [
+      "http://s3.amazonaws.com/boutiika-assets/image_library/BTKA_14029483086978557_28e0fe88768fbc94f883473ccf5f38.jpg",
+      "http://s3.amazonaws.com/boutiika-assets/image_library/BTKA_14029482999886508_124dd21b381d291a466b6d6d33f38b.jpg"
+    ]
+  ),
+  :return_policy => Ebay::Types::ReturnPolicy.new(
+    :returns_accepted_option => "ReturnsAccepted",
+    :returns_within_option => "Days_14"
+  ),
   :shipping_details => Ebay::Types::ShippingDetails.new(
     :shipping_service_options => [
       Ebay::Types::ShippingServiceOptions.new(
@@ -45,6 +56,7 @@ item = Ebay::Types::Item.new(
     ]
   )
 )
+
 
 begin
   response = ebay.add_item(:item => item)
