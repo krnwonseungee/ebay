@@ -39,15 +39,6 @@ item = Ebay::Types::Item.new(
   :return_policy => Ebay::Types::ReturnPolicy.new(
     :returns_accepted_option => "ReturnsAccepted",
     :returns_within_option => "Days_14"
-  ),
-
-  :variations => Ebay::Types::Variation.new(
-    :variation_specific_set => [
-      Ebay::Types::NameValueList.new(
-          :name => "Color",
-          :values => ["Purple", "White"]
-      )
-    ]
   )
 )
 
