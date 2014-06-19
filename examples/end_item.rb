@@ -11,7 +11,7 @@ ebay = Ebay::Api.new
 
 begin
   # End the item as passed in as the first argument
-  response = ebay.end_item(:item_id => ARGV.first, :ending_reason => EndReasonCode::LostOrBroken)
+  response = ebay.end_item(:item_id => 110144856857, :ending_reason => "OtherListingError")
   puts "Successfully ended item #{ARGV.first}"
 rescue Ebay::RequestError => e
   e.errors.each do |error|
