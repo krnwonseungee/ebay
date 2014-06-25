@@ -3,7 +3,7 @@ module Ebay # :nodoc:
     class UserIdentityCode
       extend Enumerable
       extend Enumeration
-      EBayUser = 'eBayUser'
+      User = 'User'
       EBayPartner = 'eBayPartner'
     end
   end
